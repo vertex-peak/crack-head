@@ -1765,5 +1765,16 @@ function ImGui:CreateModal(Config)
 end
 
 
+local GuiParent = IsStudio and PlayerGui or CoreGui
+ImGui.ScreenGui = ImGui:CreateInstance("ScreenGui", GuiParent, {
+	DisplayOrder = 9999,
+	ResetOnSpawn = false
+})
+wait(5)
+ImGui.FullScreenGui = ImGui:CreateInstance("ScreenGui", GuiParent, {
+	DisplayOrder = 99999,
+	ResetOnSpawn = false,
+	ScreenInsets = Enum.ScreenInsets.None
+})
 
 return ImGui
